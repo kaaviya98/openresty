@@ -1,0 +1,17 @@
+version: '3.3'
+services:
+  openresty:
+    build:
+      context: .
+    ports:
+      - "80:80"
+      - "8080:8080"
+    restart: unless-stopped
+
+  node-exporter:
+    build:
+      context: ./prometheus-node-exporter
+    ports:
+      - "9100:9100"
+    restart: unless-stopped
+
